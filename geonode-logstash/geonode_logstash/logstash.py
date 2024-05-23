@@ -196,6 +196,12 @@ DATA_TYPES_MAP = [
 ]
 
 
+# Overrides the default DATA_TYPES_MAP with the custom one from settings
+CUSTOM_DATA_TYPES_MAP = getattr(settings, 'DATA_TYPES_MAP', None)
+if CUSTOM_DATA_TYPES_MAP is not None:
+    DATA_TYPES_MAP = CUSTOM_DATA_TYPES_MAP
+
+
 class LogstashDispatcher(object):
     """
     Dispatcher of GeoNode metric data for Logstash server
