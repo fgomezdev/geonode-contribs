@@ -35,7 +35,7 @@ from django.contrib.auth import get_user_model
 # from django_celery_beat.models import PeriodicTask
 
 from geonode.maps.models import Map
-from geonode.layers.models import Layer
+from geonode.layers.models import Dataset
 from geonode.documents.models import Document
 from geonode.monitoring.models import EventType
 from geonode.monitoring.collector import CollectorAPI
@@ -514,10 +514,10 @@ class LogstashDispatcher(object):
     @staticmethod
     def _get_layers():
         """
-        Retrieving all the existing layers
-        :return: layers count
+        Retrieving all the existing datasets
+        :return: datasets count
         """
-        return Layer.objects.count()
+        return Dataset.objects.count()
 
     @staticmethod
     def _get_maps():
