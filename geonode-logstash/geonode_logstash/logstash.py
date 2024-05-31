@@ -192,7 +192,74 @@ DATA_TYPES_MAP = [
                 }
             }
         ]
-    }
+    }, # Start custom settings --->
+    {
+        "name": "documents",
+        "metrics": [
+            {
+                "name": "request.count",
+                "params": {
+                    "group_by": "resource",
+                    "event_type": "upload"
+                },
+                "hooks": {
+                    "name": "resource.name",
+                    "uploads": "val"
+                }
+            }
+        ]
+    },
+    {
+        "name": "maps",
+        "metrics": [
+            {
+                "name": "request.count",
+                "params": {
+                    "group_by": "resource",
+                    "event_type": "create"
+                },
+                "hooks": {
+                    "name": "resource.name",
+                    "creates": "val"
+                }
+            }
+        ]
+    },
+    {
+        "name": "datasets",
+        "metrics": [
+            {
+                "name": "request.count",
+                "params": {
+                    "group_by": "resource"
+                },
+                "hooks": {
+                    "name": "resource.name",
+                    "hits": "val"
+                }
+            },
+            {
+                "name": "request.count",
+                "params": {
+                    "group_by": "event_type"
+                },
+                "hooks": {
+                    "name": "event_type",
+                    "hits": "val"
+                }
+            },
+            {
+                "name": "request.users",
+                "params": {
+                    "group_by": "user_on_label"
+                },
+                "hooks": {
+                    "name": "resource.name",
+                    "unique_visitors": "val"
+                }
+            }
+        ]
+    }    
 ]
 
 
